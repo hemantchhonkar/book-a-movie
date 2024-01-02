@@ -18,6 +18,9 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "address")
+    private Theatre theatre;
+
     @Column(name = "ADDRESS")
     private String address;
 

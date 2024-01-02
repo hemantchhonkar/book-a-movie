@@ -19,7 +19,7 @@ public class TheatreController {
         this.theatreService = theatreService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<Theatre>> getAll(){
         return ResponseEntity.ok(this.theatreService.findAll());
     }

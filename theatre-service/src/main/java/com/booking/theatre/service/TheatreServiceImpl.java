@@ -1,5 +1,6 @@
 package com.booking.theatre.service;
 
+import com.booking.theatre.entity.Address;
 import com.booking.theatre.entity.Theatre;
 import com.booking.theatre.repository.TheatreRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -14,14 +15,20 @@ import java.util.List;
 public class TheatreServiceImpl implements TheatreService{
 
     private final TheatreRepository theatreRepository;
+    private final AddressService addressService;
 
     @Autowired
-    public TheatreServiceImpl(TheatreRepository theatreRepository) {
+    public TheatreServiceImpl(TheatreRepository theatreRepository,
+                              AddressService addressService) {
         this.theatreRepository = theatreRepository;
+        this.addressService = addressService;
     }
 
     @Override
     public Theatre create(Theatre theatre) {
+
+      //  Address address = this.addressService.findById(theatre.getAddress().getId());
+       // theatre.setAddress(address);
         return this.theatreRepository.save(theatre);
     }
 
